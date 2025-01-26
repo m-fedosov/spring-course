@@ -22,4 +22,14 @@ public class BooksDAO {
     public List<Book> findAll() {
         return jdbcTemplate.query("SELECT * FROM Book", new BeanPropertyRowMapper<>(Book.class));
     }
+
+    public void save(Book book) {
+        jdbcTemplate.update(
+                "INSERT INTO Book (title, author, year, reserved_by) values (?, ?, ?, ?)",
+                book.getTitle(),
+                book.getAuthor(),
+                book.getYear(),
+                book.getReservedBy()
+        );
+    }
 }
