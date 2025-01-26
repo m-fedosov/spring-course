@@ -12,7 +12,7 @@ public class Person {
     private int id;
 
     @NotEmpty
-    @Size(min = 2, max = 50, message = "ФИО должно быть от 2 до 50 символов")
+    @Size(min = 2, max = 100, message = "ФИО должно быть от 2 до 100 символов")
     private String fullName;
 
     @Min(value = 1900, message = "Год рождения должен быть больше, чем 1900")
