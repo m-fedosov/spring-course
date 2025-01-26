@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Добавление человека</title>
+</head>
+<body>
+    <form action="#" th:action="@{/people/new}" th:object="${person}" method="post">
+        <label for="fullName">ФИО человека:</label>
+        <input type="text" id="fullName" th:field="*{fullName}">
+        <br>
+        <label for="birthYear">Год рождения:</label>
+        <input type="text" id="birthYear" th:field="*{birthYear}">
+        <br>
+        <input type="submit" value="Создать">
+    </form>
+</body>
+</html>
