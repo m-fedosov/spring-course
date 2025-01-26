@@ -5,9 +5,7 @@ import dev.fedosov.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/people")
@@ -35,6 +33,12 @@ public class PeopleController {
     @PostMapping("/new")
     public String create(Person person) {
         personDAO.save(person);
+        return "redirect:/people";
+    }
+
+    @PatchMapping("/{id}/edit")
+    public String update(@PathVariable("id") int id, Person person) {
+        personDAO.update(person, id);
         return "redirect:/people";
     }
 }

@@ -29,4 +29,13 @@ public class PersonDAO {
                 person.getBirthYear()
         );
     }
+
+    public void update(Person person, int id) {
+        jdbcTemplate.update(
+                "UPDATE Person SET full_name=?, birth_year=? WHERE id=?",
+                person.getFullName(),
+                person.getBirthYear(),
+                id
+        );
+    }
 }
