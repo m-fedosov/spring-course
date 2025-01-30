@@ -9,14 +9,14 @@
 </head>
 <body>
 <p th:text="${person.getFullName() + ', ' + person.getBirthYear()}">person fullname, person birthYear</p>
-<div th:switch="${booksDao.findByReservedBy(person.getId())}">
-    <span th:case="null">Человек пока не взял ни одной книги</span>
-    <div th:case="*">
-        <b>Книги:</b>
-        <div th:each="book : ${booksDao.findByReservedBy(person.getId())}">
-            <span th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">book title, author, year</span>
-            <br/>
-        </div>
+<div th:if="${booksDao.findByReservedBy(person.getId()).size() == 0}">
+    Человек пока не взял ни одной книги
+</div>
+<div th:unless="${booksDao.findByReservedBy(person.getId()).size() == 0}">
+    <b>Книги:</b>
+    <div th:each="book : ${booksDao.findByReservedBy(person.getId())}">
+        <span th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">book title, author, year</span>
+        <br/>
     </div>
 </div>
 <hr/>
