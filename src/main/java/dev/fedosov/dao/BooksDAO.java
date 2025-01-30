@@ -27,6 +27,10 @@ public class BooksDAO {
         return jdbcTemplate.query("SELECT * FROM Book WHERE id = ?", new BeanPropertyRowMapper<>(Book.class), id).stream().findFirst().orElse(null);
     }
 
+    public List<Book> findByReservedBy(int reservedBy) {
+        return jdbcTemplate.query("SELECT * FROM Book WHERE reserved_by=?", new BeanPropertyRowMapper<>(Book.class), reservedBy);
+    }
+
     public void save(Book book) {
         jdbcTemplate.update(
                 "INSERT INTO Book (title, author, year, reserved_by) values (?, ?, ?, ?)",

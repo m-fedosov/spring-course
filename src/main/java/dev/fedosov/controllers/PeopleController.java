@@ -16,10 +16,12 @@ import java.util.List;
 public class PeopleController {
 
     private final PersonDAO personDAO;
+    private final BooksDAO booksDAO;
 
     @Autowired
     public PeopleController(PersonDAO personDAO, BooksDAO booksDAO) {
         this.personDAO = personDAO;
+        this.booksDAO = booksDAO;
     }
 
     @GetMapping()
@@ -57,6 +59,7 @@ public class PeopleController {
     public String show(@PathVariable("id") int id, Model model) {
         Person person = personDAO.findById(id);
         model.addAttribute("person", person);
+        model.addAttribute("booksDao", booksDAO);
         return "people/show";
     }
 

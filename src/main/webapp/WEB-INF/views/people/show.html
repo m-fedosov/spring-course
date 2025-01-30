@@ -9,6 +9,16 @@
 </head>
 <body>
 <p th:text="${person.getFullName() + ', ' + person.getBirthYear()}">person fullname, person birthYear</p>
+<div th:switch="${booksDao.findByReservedBy(person.getId())}">
+    <span th:case="null">Человек пока не взял ни одной книги</span>
+    <div th:case="*">
+        <b>Книги:</b>
+        <div th:each="book : ${booksDao.findByReservedBy(person.getId())}">
+            <span th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">book title, author, year</span>
+            <br/>
+        </div>
+    </div>
+</div>
 <hr/>
 <form th:method="GET" th:action="@{/people/{id}/edit(id=*{id})}" th:object="${person}">
     <input type="submit" value="Редактировать"/>
