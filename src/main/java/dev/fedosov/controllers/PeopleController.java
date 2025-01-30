@@ -55,7 +55,10 @@ public class PeopleController {
     }
 
     @PatchMapping("/{id}/edit")
-    public String update(@PathVariable("id") int id, Person person) {
+    public String update(@PathVariable("id") int id, @Valid Person person, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "people/edit";
+
         personDAO.update(person, id);
         return "redirect:/people";
     }

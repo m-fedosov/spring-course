@@ -11,10 +11,12 @@
 <form th:method="PATCH" th:action="@{/people/{id}/edit(id=*{id})}" th:object="${person}">
     <label for="fullName">ФИО человека:</label>
     <input type="text" id="fullName" th:field="*{fullName}">
-    <br>
+    <div style="color:red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Full name Error</div>
+    <br/>
     <label for="birthYear">Год рождения:</label>
     <input type="text" id="birthYear" th:field="*{birthYear}">
-    <br>
+    <div style="color:red" th:if="${#fields.hasErrors('birthYear')}" th:errors="*{birthYear}">Year of birth Error</div>
+    <br/>
     <input type="submit" value="Изменить">
 </form>
 </body>
