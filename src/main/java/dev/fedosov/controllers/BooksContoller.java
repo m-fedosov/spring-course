@@ -4,9 +4,11 @@ import dev.fedosov.dao.BooksDAO;
 import dev.fedosov.dao.PersonDAO;
 import dev.fedosov.models.Book;
 import dev.fedosov.models.Person;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +39,10 @@ public class BooksContoller {
     }
 
     @PostMapping("/new")
-    public String create(Book book) {
+    public String create(@Valid Book book, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/new";
+
         booksDAO.save(book);
         return "redirect:/books";
     }
@@ -49,7 +54,10 @@ public class BooksContoller {
     }
 
     @PatchMapping("/{id}/edit")
-    public String update(@PathVariable("id") int id, Book book) {
+    public String update(@PathVariable("id") int id, @Valid Book book, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/edit";
+
         booksDAO.update(book, id);
         return "redirect:/books";
     }
