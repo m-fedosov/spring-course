@@ -57,4 +57,10 @@ public class BooksContoller {
         model.addAttribute("book", book);
         return "books/show";
     }
+
+    @DeleteMapping("/{id}")
+    public String show(@PathVariable("id") int id) {
+        booksDAO.delete(id);
+        return "redirect:/books";
+    }
 }
