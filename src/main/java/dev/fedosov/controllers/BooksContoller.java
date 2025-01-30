@@ -1,6 +1,7 @@
 package dev.fedosov.controllers;
 
 import dev.fedosov.dao.BooksDAO;
+import dev.fedosov.dao.PersonDAO;
 import dev.fedosov.models.Book;
 import dev.fedosov.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,12 @@ import java.util.List;
 public class BooksContoller {
 
     private final BooksDAO booksDAO;
+    private final PersonDAO personDAO;
 
     @Autowired
-    public BooksContoller(BooksDAO booksDAO) {
+    public BooksContoller(BooksDAO booksDAO, PersonDAO personDAO) {
         this.booksDAO = booksDAO;
+        this.personDAO = personDAO;
     }
 
     @GetMapping()
@@ -53,8 +56,8 @@ public class BooksContoller {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        Book book = booksDAO.findById(id);
-        model.addAttribute("book", book);
+        model.addAttribute("book", booksDAO.findById(id));
+        model.addAttribute("personDao", personDAO);
         return "books/show";
     }
 

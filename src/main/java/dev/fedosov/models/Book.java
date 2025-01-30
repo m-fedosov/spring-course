@@ -20,7 +20,7 @@ public class Book {
 
     private int year;
 
-    private Person reservedBy;
+    private Integer reservedBy;
 
     public Book() {}
 }
