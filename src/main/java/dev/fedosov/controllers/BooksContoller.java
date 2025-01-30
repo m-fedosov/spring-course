@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/books")
 public class BooksContoller {
@@ -47,5 +49,12 @@ public class BooksContoller {
     public String update(@PathVariable("id") int id, Book book) {
         booksDAO.update(book, id);
         return "redirect:/books";
+    }
+
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") int id, Model model) {
+        Book book = booksDAO.findById(id);
+        model.addAttribute("book", book);
+        return "books/show";
     }
 }

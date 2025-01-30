@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Страница человека</title>
+</head>
+<body>
+<p th:text="${person.getFullName() + ', ' + person.getBirthYear()}">person fullname, person birthYear</p>
+<hr/>
+<form th:method="GET" th:action="@{/people/{id}/edit(id=*{id})}" th:object="${person}">
+    <input type="submit" value="Редактировать"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+    <input type="submit" value="Удалить"/>
+</form>
+</body>
+</html>
