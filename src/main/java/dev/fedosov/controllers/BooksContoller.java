@@ -6,9 +6,7 @@ import dev.fedosov.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/books")
@@ -36,6 +34,18 @@ public class BooksContoller {
     @PostMapping("/new")
     public String create(Book book) {
         booksDAO.save(book);
+        return "redirect:/books";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String update(@PathVariable("id") int id, Model model) {
+        model.addAttribute("book", booksDAO.findById(id));
+        return "books/edit";
+    }
+
+    @PatchMapping("/{id}/edit")
+    public String update(@PathVariable("id") int id, Book book) {
+        booksDAO.update(book, id);
         return "redirect:/books";
     }
 }
