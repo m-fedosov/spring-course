@@ -4,6 +4,7 @@ import dev.fedosov.dao.BooksDAO;
 import dev.fedosov.dao.PersonDAO;
 import dev.fedosov.models.Book;
 import dev.fedosov.models.Person;
+import dev.fedosov.util.PersonValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +20,13 @@ public class PeopleController {
 
     private final PersonDAO personDAO;
     private final BooksDAO booksDAO;
+    private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleController(PersonDAO personDAO, BooksDAO booksDAO) {
+    public PeopleController(PersonDAO personDAO, BooksDAO booksDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
         this.booksDAO = booksDAO;
+        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -56,6 +59,7 @@ public class PeopleController {
 
     @PatchMapping("/{id}/edit")
     public String update(@PathVariable("id") int id, @Valid Person person, BindingResult bindingResult) {
+        personValidator.validate(person, bindingResult);
         if (bindingResult.hasErrors())
             return "people/edit";
 
