@@ -5,7 +5,6 @@ import dev.fedosov.services.BooksService;
 import dev.fedosov.services.PeopleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -85,5 +84,17 @@ public class BooksContoller {
     public String show(@PathVariable("id") int id) {
         booksService.delete(id);
         return "redirect:/books";
+    }
+
+    @GetMapping("/search")
+    public String search() {
+        return "books/search";
+    }
+
+    @GetMapping(path = "/search", params = {"text"})
+    public String search(@RequestParam(value = "text", required = false) String text, Model model) {
+        model.addAttribute("book", booksService.findByTitle(text));
+        model.addAttribute("peopleService", peopleService);
+        return "books/search_results";
     }
 }

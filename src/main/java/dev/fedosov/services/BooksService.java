@@ -44,6 +44,11 @@ public class BooksService {
         return booksRepository.findByReservedBy(reservedBy);
     }
 
+    @Transactional(readOnly = true)
+    public Book findByTitle(String title) {
+        return booksRepository.findByTitleLike(title + "%");
+    }
+
     public void save(Book book) {
         booksRepository.save(book);
     }
