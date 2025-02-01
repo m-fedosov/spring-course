@@ -1,7 +1,7 @@
 package dev.fedosov.util;
 
-import dev.fedosov.dao.PersonDAO;
 import dev.fedosov.models.Person;
+import dev.fedosov.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -9,11 +9,11 @@ import org.springframework.validation.Validator;
 
 @Component
 public class PersonValidator implements Validator {
-    private final PersonDAO personDAO;
+    private final PeopleService peopleService;
 
     @Autowired
-    public PersonValidator(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public PersonValidator(PeopleService peopleService) {
+        this.peopleService = peopleService;
     }
 
     @Override
@@ -26,8 +26,8 @@ public class PersonValidator implements Validator {
         Person person = (Person) target;
 
         // есть человек с таким же email в бд
-        if (personDAO.findByFullName(person.getFullName()).isPresent()) {
-            Person person1 = personDAO.findByFullName(person.getFullName()).get();
+        if (peopleService.findByFullName(person.getFullName()) != null) {
+            Person person1 = peopleService.findByFullName(person.getFullName());
             if (person1.getId() != person.getId()) {
                 errors.rejectValue("fullName", "", "Человек с таким именем уже существует");
             }

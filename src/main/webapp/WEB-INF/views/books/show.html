@@ -17,14 +17,14 @@
         <label for="reserve">
             Эта книга свободна. Кому назначить её?<br/>Выберите человека
             <select th:field="*{reservedBy}">
-                <option th:each="person : ${personDao.findAll()}" th:value="${person.getId()}" th:text="${person.getFullName()}">person full name</option>
+                <option th:each="person : ${peopleService.findAll()}" th:value="${person.getId()}" th:text="${person.getFullName()}">person full name</option>
             </select>
         </label>
         <input type="submit" id="reserve" value="Назначить">
     </form>
 </div>
 <div th:unless="${book.getReservedBy() == null}">
-    Книга сейчас у: <span th:text="${personDao.findById(book.getReservedBy()).getFullName()}">person full name</span>
+    Книга сейчас у: <span th:text="${peopleService.findById(book.getReservedBy()).getFullName()}">person full name</span>
     <form th:method="PATCH" th:action="@{/books/{id}/edit(id=*{id})}" th:object="${book}">
         <input type="hidden" th:value="${book.getTitle()}" th:field="*{title}">
         <input type="hidden" th:value="${book.getAuthor()}" th:field="*{author}">
