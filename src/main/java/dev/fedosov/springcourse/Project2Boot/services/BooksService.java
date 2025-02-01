@@ -1,7 +1,7 @@
-package dev.fedosov.services;
+package dev.fedosov.springcourse.Project2Boot.services;
 
-import dev.fedosov.models.Book;
-import dev.fedosov.repositories.BooksRepository;
+import dev.fedosov.springcourse.Project2Boot.models.Book;
+import dev.fedosov.springcourse.Project2Boot.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional

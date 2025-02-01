@@ -1,15 +1,12 @@
-package dev.fedosov.services;
+package dev.fedosov.springcourse.Project2Boot.services;
 
-import dev.fedosov.models.Book;
-import dev.fedosov.models.Person;
-import dev.fedosov.repositories.PeopleRepository;
+import dev.fedosov.springcourse.Project2Boot.models.Person;
+import dev.fedosov.springcourse.Project2Boot.repositories.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional

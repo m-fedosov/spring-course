@@ -1,4 +1,4 @@
-package dev.fedosov.models;
+package dev.fedosov.springcourse.Project2Boot.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;

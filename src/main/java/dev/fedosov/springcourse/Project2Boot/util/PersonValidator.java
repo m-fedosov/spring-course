@@ -1,7 +1,7 @@
-package dev.fedosov.util;
+package dev.fedosov.springcourse.Project2Boot.util;
 
-import dev.fedosov.models.Person;
-import dev.fedosov.services.PeopleService;
+import dev.fedosov.springcourse.Project2Boot.models.Person;
+import dev.fedosov.springcourse.Project2Boot.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

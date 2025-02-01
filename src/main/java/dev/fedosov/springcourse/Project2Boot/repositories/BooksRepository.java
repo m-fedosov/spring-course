@@ -1,6 +1,6 @@
-package dev.fedosov.repositories;
+package dev.fedosov.springcourse.Project2Boot.repositories;
 
-import dev.fedosov.models.Book;
+import dev.fedosov.springcourse.Project2Boot.models.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

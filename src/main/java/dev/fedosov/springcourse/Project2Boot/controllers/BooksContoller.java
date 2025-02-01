@@ -1,8 +1,8 @@
-package dev.fedosov.controllers;
+package dev.fedosov.springcourse.Project2Boot.controllers;
 
-import dev.fedosov.models.Book;
-import dev.fedosov.services.BooksService;
-import dev.fedosov.services.PeopleService;
+import dev.fedosov.springcourse.Project2Boot.models.Book;
+import dev.fedosov.springcourse.Project2Boot.services.BooksService;
+import dev.fedosov.springcourse.Project2Boot.services.PeopleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
