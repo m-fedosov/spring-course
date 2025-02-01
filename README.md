@@ -48,7 +48,7 @@
 ### 🛠 Технологии и инструменты
 
 ![REST](https://img.shields.io/badge/REST-API-brightgreen)
-![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
+![SpringBoot](https://img.shields.io/badge/Spring_Boot-%236DB33F?logo=Spring&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?logo=Hibernate&logoColor=white)
