@@ -27,7 +27,10 @@ public class PersonValidator implements Validator {
 
         // есть человек с таким же email в бд
         if (personDAO.findByFullName(person.getFullName()).isPresent()) {
-            errors.rejectValue("fullName", "", "Человек с таким именем уже существует");
+            Person person1 = personDAO.findByFullName(person.getFullName()).get();
+            if (person1.getId() != person.getId()) {
+                errors.rejectValue("fullName", "", "Человек с таким именем уже существует");
+            }
         }
     }
 }
