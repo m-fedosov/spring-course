@@ -10,6 +10,8 @@
 
 ## 📂 Project 1
 
+[Подробное задание](https://swiftbook.org/system/uploads/lecture_material/material/866/Project1_TZ.pdf)
+
 ### 🛠 Технологии и инструменты
 
 ![REST](https://img.shields.io/badge/REST-API-brightgreen)
@@ -40,6 +42,8 @@
 ---
 
 ## 📂 Project 2
+
+[Подробное задание](https://swiftbook.org/system/uploads/lecture_material/material/872/Project2_TZ.pdf)
 
 ### 🛠 Технологии и инструменты
 
