@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Getter
 @Setter
 @Entity
@@ -30,6 +32,9 @@ public class Book {
 
     @Column(name = "reserved_by")
     private Integer reservedBy;
+
+    @Column(name = "reserved_time")
+    private Timestamp reservedTime;
 
     public Book() {}
 }

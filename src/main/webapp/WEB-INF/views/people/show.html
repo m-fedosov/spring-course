@@ -15,7 +15,7 @@
 <div th:unless="${booksService.findByReservedBy(person.getId()).size() == 0}">
     <b>Книги:</b>
     <div th:each="book : ${booksService.findByReservedBy(person.getId())}">
-        <span th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">book title, author, year</span>
+        <span th:style="${booksService.isOverdue(book)}? 'color:red'" th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">book title, author, year</span>
         <br/>
     </div>
 </div>

@@ -8,7 +8,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -54,11 +58,21 @@ public class BooksService {
     }
 
     public void update(Book book, int id) {
+        Book bookToUpdate = booksRepository.findById(id).orElse(book);
+        if ((bookToUpdate.getReservedBy() == null && book.getReservedBy() != null)
+            || (bookToUpdate.getReservedBy() != null && book.getReservedBy() != null && bookToUpdate.getReservedBy() != book.getReservedBy())
+        ) {
+            book.setReservedTime(new Timestamp(System.currentTimeMillis()));
+        }
         book.setId(id);
         booksRepository.save(book);
     }
 
     public void delete(int id) {
         booksRepository.deleteById(id);
+    }
+
+    public boolean isOverdue(Book book) {
+        return book.getReservedTime().toLocalDateTime().isBefore(LocalDate.now().minusDays(10).atStartOfDay());
     }
 }
