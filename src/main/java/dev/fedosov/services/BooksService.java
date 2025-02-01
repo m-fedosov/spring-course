@@ -4,6 +4,7 @@ import dev.fedosov.models.Book;
 import dev.fedosov.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,12 +21,16 @@ public class BooksService {
     }
 
     @Transactional(readOnly = true)
-    public List<Book> findAll() {
+    public List<Book> findAll(boolean sortByYear) {
+        if (sortByYear)
+            return booksRepository.findAll(Sort.by("year"));
         return booksRepository.findAll();
     }
 
     @Transactional(readOnly = true)
-    public List<Book> findAll(int page, int itemsPerPage) {
+    public List<Book> findAll(int page, int itemsPerPage, boolean sortByYear) {
+        if (sortByYear)
+            return booksRepository.findAll(PageRequest.of(page, itemsPerPage, Sort.by("year"))).getContent();
         return booksRepository.findAll(PageRequest.of(page, itemsPerPage)).getContent();
     }
 

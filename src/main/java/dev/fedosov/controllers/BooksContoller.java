@@ -25,14 +25,22 @@ public class BooksContoller {
     }
 
     @GetMapping()
-    public String index(Model model) {
-        model.addAttribute("books", booksService.findAll());
+    public String index(
+            @RequestParam(value = "sort_by_year", required = false) boolean sortByYear,
+            Model model
+    ) {
+        model.addAttribute("books", booksService.findAll(sortByYear));
         return "books/index";
     }
 
-    @GetMapping(params = {"page", "books_per_page"})
-    public String index(@RequestParam("page") int page, @RequestParam("books_per_page") int booksPerPage, Model model) {
-        model.addAttribute("books", booksService.findAll(page, booksPerPage));
+    @GetMapping(params = {"page", "books_per_page", "sort_by_year"})
+    public String index(
+            @RequestParam("page") int page,
+            @RequestParam("books_per_page") int booksPerPage,
+            @RequestParam(value = "sort_by_year", required = false) boolean sortByYear,
+            Model model
+    ) {
+        model.addAttribute("books", booksService.findAll(page, booksPerPage, sortByYear));
         return "books/index";
     }
 
