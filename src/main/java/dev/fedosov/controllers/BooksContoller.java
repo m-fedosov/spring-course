@@ -5,6 +5,7 @@ import dev.fedosov.services.BooksService;
 import dev.fedosov.services.PeopleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,12 @@ public class BooksContoller {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("books", booksService.findAll());
+        return "books/index";
+    }
+
+    @GetMapping(params = {"page", "books_per_page"})
+    public String index(@RequestParam("page") int page, @RequestParam("books_per_page") int booksPerPage, Model model) {
+        model.addAttribute("books", booksService.findAll(page, booksPerPage));
         return "books/index";
     }
 

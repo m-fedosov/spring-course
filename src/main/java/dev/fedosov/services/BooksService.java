@@ -3,6 +3,7 @@ package dev.fedosov.services;
 import dev.fedosov.models.Book;
 import dev.fedosov.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,11 @@ public class BooksService {
     @Transactional(readOnly = true)
     public List<Book> findAll() {
         return booksRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Book> findAll(int page, int itemsPerPage) {
+        return booksRepository.findAll(PageRequest.of(page, itemsPerPage)).getContent();
     }
 
     @Transactional(readOnly = true)
