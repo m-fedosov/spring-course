@@ -12,13 +12,15 @@
 
 ### 🛠 Технологии и инструменты
 
-![Spring](https://img.shields.io/badge/Spring-6.x-green)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-42-blue)
-![JDBC](https://img.shields.io/badge/JDBC-Template-yellow)
-![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.x-orange)
 ![REST](https://img.shields.io/badge/REST-API-brightgreen)
+![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
+![JDBC](https://img.shields.io/badge/JDBC-Template-yellow)
 ![Validation](https://img.shields.io/badge/Validation-@Valid-red)
 ![Lombok](https://img.shields.io/badge/Lombok-red)
+![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?logo=Apache%20Maven&logoColor=white)
+![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?logo=apache-tomcat&logoColor=black)
 
 ### 📝 Описание проекта
 
@@ -41,12 +43,14 @@
 
 ### 🛠 Технологии и инструменты
 
-![Spring Boot](https://img.shields.io/badge/SpringBoot-3.x-green)
-![Hibernate](https://img.shields.io/badge/Hibernate-5.x-blue)
-![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-3.x-yellow)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-blue)
-![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.x-orange)
 ![REST](https://img.shields.io/badge/REST-API-brightgreen)
+![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?logo=Hibernate&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-3.x-yellow)
+![Validation](https://img.shields.io/badge/Validation-@Valid-red)
+![Lombok](https://img.shields.io/badge/Lombok-red)
 
 ### 🚀 Основные изменения
 - **Миграция с JDBCTemplate** → Hibernate + Spring Data JPA
