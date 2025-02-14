@@ -6,6 +6,7 @@ import dev.fedosov.springcourse.Project2Boot.services.PeopleService;
 import dev.fedosov.springcourse.Project2Boot.util.PersonValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -73,7 +74,7 @@ public class PeopleController {
     }
 
     @DeleteMapping("/{id}")
-    public String show(@PathVariable("id") int id) {
+    public String delete(@PathVariable("id") int id) {
         peopleService.delete(id);
         return "redirect:/people";
     }

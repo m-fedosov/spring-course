@@ -5,6 +5,7 @@ import dev.fedosov.springcourse.Project2Boot.repositories.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,10 +52,12 @@ public class BooksService {
         return booksRepository.findByTitleLike(title + "%");
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void save(Book book) {
         booksRepository.save(book);
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void update(Book book, int id) {
         Book bookToUpdate = booksRepository.findById(id).orElse(book);
         if ((bookToUpdate.getReservedBy() == null && book.getReservedBy() != null)
@@ -66,6 +69,7 @@ public class BooksService {
         booksRepository.save(book);
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void delete(int id) {
         booksRepository.deleteById(id);
     }

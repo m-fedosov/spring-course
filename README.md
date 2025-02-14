@@ -23,7 +23,6 @@
 
 ### 🛠 Технологии и инструменты
 
-![REST](https://img.shields.io/badge/REST-API-brightgreen)
 ![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
@@ -56,7 +55,8 @@
 
 ### 🛠 Технологии и инструменты
 
-![REST](https://img.shields.io/badge/REST-API-brightgreen)
+![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
+![SpringSecurity](https://img.shields.io/badge/Spring%20Security-6DB33F?logo=spring&logoColor=white)
 ![SpringBoot](https://img.shields.io/badge/Spring_Boot-%236DB33F?logo=Spring&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
@@ -66,6 +66,7 @@
 ![Lombok](https://img.shields.io/badge/Lombok-red)
 
 ### 🚀 Основные изменения
+- **Spring Security**: аутентификация formLogin, авторизация вызова методов @PreAuthorize
 - **Миграция с JDBCTemplate** → Hibernate + Spring Data JPA
 - **Архитектура**: Controller-Service-Repository
 - **Конфигурация**: Переход на Spring Boot 3

@@ -3,6 +3,7 @@ package dev.fedosov.springcourse.Project2Boot.services;
 import dev.fedosov.springcourse.Project2Boot.models.Person;
 import dev.fedosov.springcourse.Project2Boot.repositories.PeopleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,15 +34,18 @@ public class PeopleService {
         return peopleRepository.findByFullName(fullName);
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void save(Person person) {
         peopleRepository.save(person);
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void update(Person person, int id) {
         person.setId(id);
         peopleRepository.save(person);
     }
 
+    @PreAuthorize("hasAuthority('write')")
     public void delete(int id) {
         peopleRepository.deleteById(id);
     }
