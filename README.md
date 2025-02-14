@@ -1,5 +1,14 @@
 # 🌱 Spring Course
 
+Приветствую тебя, странник! В этом репозитории собраны результаты обучения на курсе [Spring - Полный курс. Boot, Hibernate, Security, REST](https://swiftbook.org/courses/438/)
+
+<img src="images/image-1.png" style="width: 100%; object-fit: cover;"/>
+Не оставляй этот репозиторий без звёздочки, если он был тебе полезен 🌟
+
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=spring.course">
+
+---
+
 > **Задание:** В местной библиотеке хотят перейти на цифровой учет книг. Вам
 необходимо реализовать веб-приложение для них. Библиотекари
 должны иметь возможность регистрировать читателей, выдавать им
@@ -48,6 +57,7 @@
 
 ![Spring](https://img.shields.io/badge/Spring%20framework-6DB33F?logo=spring&logoColor=white)
 ![SpringSecurity](https://img.shields.io/badge/Spring%20Security-6DB33F?logo=spring&logoColor=white)
+![SpringBoot](https://img.shields.io/badge/Spring_Boot-%236DB33F?logo=Spring&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-%23005C0F.svg?logo=Thymeleaf&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?logo=Hibernate&logoColor=white)
