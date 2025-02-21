@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional(readOnly = true)
 public class SensorsService {
@@ -21,6 +23,10 @@ public class SensorsService {
     public void save(Sensor sensor) {
         enrichSensor(sensor);
         sensorsRepository.save(sensor);
+    }
+
+    public Optional<Sensor> findByName(String name) {
+        return sensorsRepository.findByName(name);
     }
 
     private void enrichSensor(Sensor sensor) {
