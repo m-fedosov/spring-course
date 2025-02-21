@@ -1,13 +1,13 @@
-package dev.fedosov.springcourse.Project2Boot;
+package dev.fedosov.springcourse.Project3Boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Project2BootApplication {
+public class Project3BootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Project2BootApplication.class, args);
+		SpringApplication.run(Project3BootApplication.class, args);
 	}
 
 }
