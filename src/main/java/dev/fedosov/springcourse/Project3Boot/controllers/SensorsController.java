@@ -3,6 +3,7 @@ package dev.fedosov.springcourse.Project3Boot.controllers;
 import dev.fedosov.springcourse.Project3Boot.dto.SensorDTO;
 import dev.fedosov.springcourse.Project3Boot.models.Sensor;
 import dev.fedosov.springcourse.Project3Boot.services.SensorsService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class SensorsController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<SensorDTO> registration(@RequestBody SensorDTO sensorDTO) {
+    public ResponseEntity<SensorDTO> registration(@RequestBody @Valid SensorDTO sensorDTO) {
         sensorsService.save(convertToSensor(sensorDTO));
         return new ResponseEntity<>(sensorDTO, HttpStatus.CREATED);
     }
