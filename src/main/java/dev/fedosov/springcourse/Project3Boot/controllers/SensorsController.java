@@ -4,6 +4,7 @@ import dev.fedosov.springcourse.Project3Boot.dto.SensorDTO;
 import dev.fedosov.springcourse.Project3Boot.models.Sensor;
 import dev.fedosov.springcourse.Project3Boot.services.SensorsService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-
 @RestController
 @RequestMapping("/sensors")
 public class SensorsController {
 
     private final SensorsService sensorsService;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public SensorsController(SensorsService sensorsService) {
+    public SensorsController(SensorsService sensorsService, ModelMapper modelMapper) {
         this.sensorsService = sensorsService;
+        this.modelMapper = modelMapper;
     }
 
     @PostMapping("/registration")
@@ -31,10 +32,7 @@ public class SensorsController {
         return new ResponseEntity<>(sensorDTO, HttpStatus.CREATED);
     }
 
-    private Sensor convertToSensor(SensorDTO sensorDTO) {
-        Sensor sensor = new Sensor();
-        sensor.setName(sensorDTO.getName());
-        sensor.setCreatedAt(LocalDateTime.now());
-        return sensor;
+    public Sensor convertToSensor(SensorDTO sensorDTO) {
+        return modelMapper.map(sensorDTO, Sensor.class);
     }
 }
