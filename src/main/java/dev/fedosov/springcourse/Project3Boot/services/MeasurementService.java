@@ -30,7 +30,7 @@ public class MeasurementService {
 
     private void enrichMeasurement(Measurement measurement) {
         measurement.setMeasureTime(LocalDateTime.now());
-        measurement.setSensor(sensorsService.findByName(measurement.getSensor().getName()).get());
+        measurement.setSensor(sensorsService.findByName(measurement.getSensor().getName()).orElseThrow(() -> new RuntimeException("sensor not found")));
     }
 
     public List<Measurement> findAll() {
