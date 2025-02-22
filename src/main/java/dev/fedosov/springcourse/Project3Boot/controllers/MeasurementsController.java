@@ -31,6 +31,11 @@ public class MeasurementsController {
         return new ResponseEntity<>(measurementDTOList, HttpStatus.CREATED);
     }
 
+    @GetMapping("/rainyDaysCount")
+    public ResponseEntity<Integer> getRainyDaysCount() {
+        return new ResponseEntity<>(measurementService.countRainyDays(), HttpStatus.CREATED);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<MeasurementDTO> addMeasurement(@RequestBody @Valid MeasurementDTO measurementDTO) {
         measurementService.save(convertToMeasurement(measurementDTO));

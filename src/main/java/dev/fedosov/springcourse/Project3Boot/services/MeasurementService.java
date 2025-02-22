@@ -36,4 +36,8 @@ public class MeasurementService {
     public List<Measurement> findAll() {
         return measurementRepository.findAll();
     }
+
+    public Integer countRainyDays() {
+        return measurementRepository.countAllByRaining(true);
+    }
 }
