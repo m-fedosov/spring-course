@@ -3,6 +3,7 @@ package dev.fedosov.springcourse.Project3Boot.controllers;
 import dev.fedosov.springcourse.Project3Boot.dto.MeasurementDTO;
 import dev.fedosov.springcourse.Project3Boot.models.Measurement;
 import dev.fedosov.springcourse.Project3Boot.services.MeasurementService;
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ public class MeasurementsController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<MeasurementDTO> addMeasurement(@RequestBody MeasurementDTO measurementDTO) {
+    public ResponseEntity<MeasurementDTO> addMeasurement(@RequestBody @Valid MeasurementDTO measurementDTO) {
         measurementService.save(convertToMeasurement(measurementDTO));
         return new ResponseEntity<>(measurementDTO, HttpStatus.CREATED);
     }

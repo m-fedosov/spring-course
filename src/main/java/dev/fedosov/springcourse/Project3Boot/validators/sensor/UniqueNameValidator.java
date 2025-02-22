@@ -1,4 +1,4 @@
-package dev.fedosov.springcourse.Project3Boot.validators;
+package dev.fedosov.springcourse.Project3Boot.validators.sensor;
 
 import dev.fedosov.springcourse.Project3Boot.services.SensorsService;
 import jakarta.validation.ConstraintValidator;
@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UniqueSensorNameValidator implements ConstraintValidator<UniqueSensorName, String> {
+public class UniqueNameValidator implements ConstraintValidator<UniqueName, String> {
     private final SensorsService sensorsService;
 
     @Autowired
-    public UniqueSensorNameValidator(SensorsService sensorsService) {
+    public UniqueNameValidator(SensorsService sensorsService) {
         this.sensorsService = sensorsService;
     }
 

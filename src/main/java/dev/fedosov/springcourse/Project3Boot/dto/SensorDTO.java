@@ -1,16 +1,14 @@
 package dev.fedosov.springcourse.Project3Boot.dto;
 
-import dev.fedosov.springcourse.Project3Boot.validators.UniqueSensorName;
-import dev.fedosov.springcourse.Project3Boot.validators.ValidLengthSensorName;
-import jakarta.validation.constraints.NotEmpty;
+import dev.fedosov.springcourse.Project3Boot.validators.sensor.UniqueName;
+import dev.fedosov.springcourse.Project3Boot.validators.sensor.LengthName;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class SensorDTO {
-    @NotEmpty(message = "name shouldn't be empty")
-    @UniqueSensorName
-    @ValidLengthSensorName
+    @UniqueName
+    @LengthName
     private String name;
 }
