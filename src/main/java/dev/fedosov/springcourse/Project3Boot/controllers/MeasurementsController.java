@@ -8,10 +8,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/measurements")
@@ -24,6 +23,12 @@ public class MeasurementsController {
     public MeasurementsController(MeasurementService measurementService, ModelMapper modelMapper) {
         this.measurementService = measurementService;
         this.modelMapper = modelMapper;
+    }
+
+    @GetMapping
+    public ResponseEntity<List<MeasurementDTO>> getAllMeasurements() {
+        List<MeasurementDTO> measurementDTOList = measurementService.findAll().stream().map(m -> modelMapper.map(m, MeasurementDTO.class)).toList();
+        return new ResponseEntity<>(measurementDTOList, HttpStatus.CREATED);
     }
 
     @PostMapping("/add")
